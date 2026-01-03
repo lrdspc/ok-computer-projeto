@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #00D9FF;
+    --color-primary-dark: #00A8CC;
+    --color-primary-light: #66ECFF;
+    --color-secondary: #FF006E;
+    --color-secondary-dark: #BB0050;
+    --color-secondary-light: #FF4D99;
+    --color-success: #06D6A0;
+    --color-warning: #FFB703;
+    --color-danger: #E63946;
+    --color-info: #457B9D;
+    --color-bg-dark: #0A0E27;
+    --color-bg-light: #F7F9FB;
+    --color-bg-surface: #1A1F3A;
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #B0B8C1;
+    --color-border: #2C3E50;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-bg-dark text-text-primary;
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg-dark);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-dark);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary-dark text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105;
+  }
+
+  .card {
+    @apply bg-bg-surface border border-border rounded-xl p-6 shadow-lg;
+  }
+
+  .card-neon {
+    @apply card border-primary/30 hover:border-primary/60 transition-all duration-300;
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.1);
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+
+  .neon-glow {
+    text-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary), 0 0 30px var(--color-primary);
+  }
+
+  .progress-bar {
+    @apply h-2 bg-border rounded-full overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full bg-gradient-to-r from-primary to-secondary transition-all duration-300;
+  }
+}
+
+/* PWA Install Prompt */
+.pwa-install-prompt {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: white;
+  padding: 1rem;
+  z-index: 1000;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.pwa-install-prompt.show {
+  transform: translateY(0);
+}
+
+/* Offline Indicator */
+.offline-indicator {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: var(--color-warning);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 0.3s ease-in-out;
+}
+
+.offline-indicator.show {
+  opacity: 1;
+  transform: translateY(0);
+}

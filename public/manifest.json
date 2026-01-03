@@ -1,0 +1,162 @@
+{
+  "name": "PWA Fitness - Personal & Aluno",
+  "short_name": "Fitness Pro",
+  "description": "Plataforma para personal trainers gerenciarem alunos, treinos, progresso e gamificação com offline-first",
+  "version": "1.0.0",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#00D9FF",
+  "background_color": "#0A0E27",
+  "categories": ["health", "fitness", "productivity"],
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard Personal",
+      "short_name": "Dashboard",
+      "description": "Acesso rápido ao painel de controle",
+      "url": "/personal/dashboard?source=shortcut",
+      "icons": [
+        {
+          "src": "/icons/shortcut-dashboard-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Novo Treino",
+      "short_name": "Novo Treino",
+      "description": "Criar novo plano de treino",
+      "url": "/personal/criar-treino?source=shortcut",
+      "icons": [
+        {
+          "src": "/icons/shortcut-workout-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Meu Treino",
+      "short_name": "Treino",
+      "description": "Ver treino do dia",
+      "url": "/aluno/treino?source=shortcut",
+      "icons": [
+        {
+          "src": "/icons/shortcut-myworkout-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Progresso",
+      "short_name": "Progresso",
+      "description": "Ver meu progresso e histórico",
+      "url": "/aluno/progresso?source=shortcut",
+      "icons": [
+        {
+          "src": "/icons/shortcut-progress-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "share_target": {
+    "action": "/share/workout",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "photo",
+          "accept": ["image/*"]
+        }
+      ]
+    }
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "web+fitnesstraining",
+      "url": "/treino?id=%s"
+    }
+  ],
+  "file_handlers": [
+    {
+      "launch_type": "single-client",
+      "accept": {
+        "application/json": [".fitplan"]
+      },
+      "action": "/open-workout-plan"
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": []
+}
